@@ -1,0 +1,85 @@
+<!-- Shopping Cart -->
+
+	<div class="shopping-cart section bg_grigio_chiaro" style="margin-top: 2cm;">
+    <p style="text-align: center;"><i><%= session[:user] %> </i>completa qui il tuo ordine per ricevere assistenza</p>
+    <div style="text-align:center;">
+    <img style="width: 12cm;" src="https://cdn.digitalmenta.com/wp-content/uploads/2019/04/potenciar-campanas-shopping.jpg" ></div>
+    <h1 style="text-align: center;">Il mio carrello: </h1>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Shopping Summery -->
+                    
+					<table class="table shopping-summery reveal">
+						<thead>
+							<tr class="main-hading bg_celeste_scuro">
+								<th>PRODOTTI</th>
+								<th>NOME</th>
+								<th>QUANTITA'</th>
+								<th><i class="fa fa-trash"></i></th>
+							</tr>
+						</thead>
+						<tbody>
+                        <% @all.each do |element| %>
+							<tr style="border: 1px solid white;">
+								<td class="image"><img src="<%= element.imagePath %>" style="width: 2cm;"></td>
+								<td class="product-des">
+									<p class="product-name"><b><%= element.title %></b></p>
+									<p class="product-des"><i><%= element.description %></i></p>
+								</td>
+								<td class="qty" data-title="Qty"><!-- Input Order -->
+									<span class="badge"><%= element.quantity %></span>
+								</td>
+								<td class="action"> <%= link_to "",  cart_path(element), :method => :delete, :class => "fa fa-trash btn btn-danger" %></td>
+							</tr>
+                            <% end %>
+						</tbody>
+					</table>
+					<!--/ End Shopping Summery -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/ End Shopping Cart -->
+    <div class="reveal-" style="text-align: center; margin-bottom: 1.5cm;">
+	<%= form_with url: orders_path, method: :post do |form| %>
+                    <input type="hidden" name="id" value="<%= session[:user_id]%>">
+                    <input class="btn bg_celeste_chiaro" type="submit" value="Completa Ordine">
+                <% end %>
+    </div>
+	
+
+
+	<!-- Start Shop Services Area  -->
+	<section class="shop-services section home ">
+		<div class="container">
+			<div class="row reveal-">
+				<div class="col-md-4  ">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<h4>Consegna gratuita <i class="fa fa-truck-loading"></i></h4>
+						<p>Direttamente a casa tua</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="col-md-4  ">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<h4>Ordina più e più volte <i class="fa fa-sync"></i></h4>
+						<p>Sempre a disposizione</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="col-md-4 ">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<h4>Trattamento sicuro <i class="fa fa-money-bill-wave"></i></h4>
+						<p>Pagamento alla consegna con relativi scontrini</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Shop Newsletter -->
+	

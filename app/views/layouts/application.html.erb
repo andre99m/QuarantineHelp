@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QH</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'style.css' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+          <style type="text/css">
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 600px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* Th
+        e width is the width of the web page */
+      }
+    </style>
+
+    <script>
+      var map;
+      
+      // Initialize and add the map
+      function initMap() {
+        var z=document.getElementById('page').value;
+        // The location of Uluru
+        var uluru = { lat: parseFloat(document.getElementById("current_lat").value), lng: parseFloat(document.getElementById("current_long").value) };
+        // The map, centered at Uluru
+        if (z=="shop"){
+          map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 11,
+            center: uluru,
+          });
+        }
+        else {
+          map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 6,
+          center: uluru,
+        });
+        }
+        if(z=="shop"){
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          icon: {
+          url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+        }
+        });
+        }
+        var x=document.getElementsByClassName('others_lat');
+        var y=document.getElementsByClassName('others_long');
+        for(var i=0; i<x.length; i++){
+            marker = new google.maps.Marker({
+            position: {lat: parseFloat(x[i].value) , lng: parseFloat(y[i].value)},
+            map: map,
+            });
+          }
+      }
+        
+    </script>
+    
+
+
+
+    <!-- Flickity caoursel CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    
+    <!--Icons-->
+    <script src="https://kit.fontawesome.com/ceb28a59d2.js" crossorigin="anonymous"></script>
+
+    <!--Scroll reveal-->
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg_sidebar border-bottom" style=" background-color: rgb(80, 80, 80);">
+            <a class="navbar-brand" href="/">QH
+            </a>
+            <a class="nav-link" href="/" style="text-align: center; margin-right: 1cm; color: white;">
+              <i class="fa fa-home" aria-hidden="true" style=" color: white;"></i>Home
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <% if current_user!=nil && (current_user.is_assistito?||current_user.is_admin?) %>
+                      <a class="nav-link" href="/products" style="color: white;">Negozio <span class="sr-only"></span></a>
+                   <%if current_user.is_assistito?%>
+                      <a class="nav-link" href="/carts/" style="color: white;">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>Carrello
+                        <span class="badge"><%= Cart.where(:emailuser => current_user.email).length %></span>
+                      </a>
+                    <%end%>
+                   
+            <% end %>
+                      <a class="nav-link" href="/#informations" style="color: white;"> Chi Siamo <span class="sr-only"></span></a>
+                    <a class="nav-link" href="#footer_final" style=" color:white; margin-right: 1cm;">
+              Contatti
+            </a>
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <% if current_user!=nil %>
+                      <%= link_to "Profile", profile_path, :method => :get , :class=> 'btn btn-warning' %>
+                      &nbsp;
+                      <%= link_to "Logout", '/users/sign_out', :method => :delete , :class=> 'btn btn-danger' %>
+                    <% else %>
+                    
+                            <a class="nav-link btn btn-primary" style="color: white;" href="/users/sign_up">Registrati</a>	&nbsp;
+                            <%= link_to "Login", '/users/sign_in', :method => :get, :class=> 'btn btn-secondary' %>
+                     <% end %>
+                            </ul>
+                        
+                 
+            </div>
+          </nav>
+
+
+
+
+    
+    <%flash.each do |type,msg| %>
+    <div class="alert alert-warning alert-dismissible fade show" style="margin-top:2cm;" role="alert">
+   Notifications: <%= msg%>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    
+    <%end%>
+  
+    <%= yield %>
+
+
+  <div id="footer_final" class="container_footer" style="font-size: 70%; text-align: center;">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md">
+                    <h5 style="color: white"><b>Contattaci &nbsp;<i class="fa fa-phone"></i></b></h5>
+                    <ul>
+
+                      <li><a href="tel:+393463985984">+39 346 398 5984</a></li>
+                      <li><a href="mailto:QuarantineHelp@outlook.com">QuarantineHelp@outlook.com</a></li>
+
+                    </ul>
+                  </div>
+                  <div class="col-md">
+                    <h5 style="color: white"><b>Diventa un assistente &nbsp;<i class="fas fa-hands-helping"></i></b></h5>
+                    <p><a href="/users/sign_up">Registrami Ora</a></p>
+                  </div>
+                  <div class="col-md">
+                    <h5 style="color: white"><b>La nostra sede &nbsp;<i class="fas fa-map-marked-alt"></i></b></h5>
+                    <p>Via Colle del Tufo 38 (RM) 04012</p>
+                  </div>
+                </div>
+                <div class="row" style="text-align: center;">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <h5 style="color:white;">Seguici su:</h5>
+                        <a href=""><i class="fa fa-facebook-official fa-2x"></i></a>
+                        <a href=""> <i class="fa fa-instagram fa-2x"></i></a>
+                        <a href=""> </i> <i class="fa fa-twitter fa-2x"></i></a>
+                        </div>
+                    <div class="col-4"></div>
+                    
+                </div>
+                <br>
+              </div>
+</div>
+
+
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLb7N0VxFe6kSvymsd6yFUIX7GCxJxZRk&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<!-- JavaScript -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+  </body>
+</html>
+

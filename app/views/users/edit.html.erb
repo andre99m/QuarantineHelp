@@ -1,0 +1,29 @@
+<div style="height: 80vh; margin-top:2cm;">
+<div class="row mx-auto" style="margin-bottom: 0.5cm;">
+    <div class="col-md-4 col-md-offset-4 mx-auto">
+        <h1 class="text-center" style="font-size: 30px;">Prima di continuare scegli il tuo ruolo e conferma la tua
+            posizione
+        </h1>
+
+      <%= form_for(@user, :url =>  change_myinfo_path(@user), :class=>"formABC" ) do |f| %>
+        <div class="form-group">
+          <%= f.label :citta %><br />
+          <%= f.text_field :citta, autocomplete: "citta", :required => true, :class=>"form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :indirizzo %><br />
+          <%= f.text_field :indirizzo, autocomplete: "indirizzo",:required => true, :class=>"form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Ruolo" %><br />
+          <%= f.select :roles_mask, [ ["Assistente",2], ["Assistito",1], ["Sviluppatore", 4] ], :required => true, :class=>"form-control" %>
+        </div>
+
+        <input type="submit" class="btn btn-success">
+
+      <% end %>
+      </div>
+      </div>
+</div>

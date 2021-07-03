@@ -1,0 +1,14 @@
+<div style="height: 80vh; margin-top:2cm;">
+<div class="row mx-auto" style="margin-bottom: 0.5cm;">
+    <div class="col-md-4 col-md-offset-4 mx-auto">
+        <h1 class="text-center" style="font-size: 30px;">Modifica Prodotto <%=@product.title%>
+        </h1>
+      <%= form_with url: product_path(@product),class: "formABC" ,method: :put do |form| %>
+        <%= render partial: "product_form", locals: {form: form, product: @product} %>
+        
+        <input type="submit" class="btn btn-success">
+
+      <% end %>
+      </div>
+      </div>
+</div>

@@ -1,0 +1,529 @@
+
+<%if @user.is_admin?%>
+    <div class="container mx-auto" style="margin-top: 100px; margin-bottom: 20px;">
+        <div class="card">
+            <form method="post">
+                <div class="row">
+                    <div class="col-12 col-md-12">
+                        <div class="profile-head card-header" style="text-align: center; background-color:rgb(219, 255, 227);">
+                            <h5 class="mt-5 mb-5" style="font-weight: 800; font-size: 40px">
+                                <b>Ciao <i><%=@user.name%> <%=@user.surname%></i>! Questo è il tuo profilo </b>
+                                <img style="width: 4cm; border-radius: 5cm;" src="https://cdn.dribbble.com/users/1235346/screenshots/3252385/job.gif">
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body" style="background-color:rgb(219, 255, 227);">
+                    <ul class="list-group list-group-flush" >
+                                <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(219, 255, 227);">
+                                    <div class="col-6">
+                                        <label style="font-size: 25px; font-weight:800">Il mio ruolo</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <i>
+                                            <p style="font-size: 20px;">Sviluppatore</p>
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(219, 255, 227);">
+                                    <div class="col-6 col-md-6">
+                                        <label style="font-size: 25px; font-weight:800">Nome</label>
+                                    </div>
+                                    <div class="col-6 col-md-6">
+                                        <i>
+                                            <p style="font-size: 20px;"><%=@user.name%></p>
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(219, 255, 227);">
+                                    <div class="col-6 col-md-6">
+                                        <label style="font-size: 25px; font-weight:800">Cognome</label>
+                                    </div>
+                                    <div class="col-6 col-md-6">
+                                        <i>
+                                            <p style="font-size: 20px;"><%=@user.surname%></p>
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(219, 255, 227);">
+                                    <div class="col-6">
+                                        <label style="font-size: 25px; font-weight:800">Email</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <i>
+                                            <p style="font-size: 20px;"><%=@user.email%></p>
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(219, 255, 227);">
+                                    <div class="col-6 col-md-6">
+                                        <label style="font-size: 25px; font-weight:800">Indirizzo</label>
+                                    </div>
+                                    <div class="col-6 col-md-6">
+                                        <i>
+                                            <p style="font-size: 20px;"><%=@user.indirizzo+ ", "+@user.citta%></p>
+                                        </i>
+                                    </div>
+                                </div>
+                    </ul>
+                </div>
+            </form>
+        </div>
+            
+    </div>
+<%end%>
+
+<%if @user.is_assistente?%>
+
+<div class="container mx-auto" style="margin-top: 100px; margin-bottom: 20px;">
+    <div class="card">
+        <form method="post">
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <div class="profile-head card-header" style="text-align: center; background-color:rgb(196, 241, 255);">
+                        <h5 class="mt-5 mb-5" style="font-weight: 800; font-size: 40px">
+                            <b>Ciao <i><%=@user.name%> <%=@user.surname%></i>! Questo è il tuo profilo </b>
+                            <img style="width: 4cm; border-radius: 5cm;" src="https://cdn.dribbble.com/users/2788963/screenshots/6829123/characterheadgif3.gif">
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body" style="background-color:rgb(225, 248, 255);">
+                <ul class="list-group list-group-flush" >
+                            <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(225, 248, 255);">
+                                <div class="col-6">
+                                    <label style="font-size: 25px; font-weight:800">Il mio ruolo</label>
+                                </div>
+                                <div class="col-6">
+                                    <i>
+                                        <p style="font-size: 20px;">Assistente</p>
+                                    </i>
+                                </div>
+                            </div>
+                            <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(225, 248, 255);">
+                                <div class="col-6 col-md-6">
+                                    <label style="font-size: 25px; font-weight:800">Nome</label>
+                                </div>
+                                <div class="col-6 col-md-6">
+                                    <i>
+                                        <p style="font-size: 20px;"><%=@user.name%></p>
+                                    </i>
+                                </div>
+                            </div>
+                            <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(225, 248, 255);">
+                                <div class="col-6 col-md-6">
+                                    <label style="font-size: 25px; font-weight:800">Cognome</label>
+                                </div>
+                                <div class="col-6 col-md-6">
+                                    <i>
+                                        <p style="font-size: 20px;"><%=@user.surname%></p>
+                                    </i>
+                                </div>
+                            </div>
+                            <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(225, 248, 255);">
+                                <div class="col-6">
+                                    <label style="font-size: 25px; font-weight:800">Email</label>
+                                </div>
+                                <div class="col-6">
+                                    <i>
+                                        <p style="font-size: 20px;"><%=@user.email%></p>
+                                    </i>
+                                </div>
+                            </div>
+                            <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(225, 248, 255);">
+                                <div class="col-6 col-md-6">
+                                    <label style="font-size: 25px; font-weight:800">Indirizzo</label>
+                                </div>
+                                <div class="col-6 col-md-6">
+                                    <i>
+                                        <p style="font-size: 20px;"><%=@user.indirizzo+ ", "+@user.citta%></p>
+                                    </i>
+                                </div>
+                            </div>
+                             
+                </ul>
+            </div>
+        </form>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center mt-5">Le tue richieste <i class="fas fa-bell"></i><span class="badge"><%=@orders.where(:emailassistente => @user.email, :stato => 'incoda').count%></span></h1>
+        </div>
+    </div>
+
+    <%if @orders.where(:emailassistente => @user.email).count==0%>
+        <div class="row" style="margin-top: 1cm;">
+            <div class="col-12" style="text-align: center;">
+                <h4>Non hai ricevuto nessuna Richiesta</h4>
+            </div>
+        </div>
+    <%else%>
+        <div class="row">
+            <div class="col-12 " style="text-align: center;">
+                <a class="btn btn-warning m-3" href="#accepted">Accettate</a>
+                <a class="btn btn-warning m-3" href="#complete">Completate</a>
+                <a class="btn btn-warning m-3" href="#waiting">In coda</a>
+            </div>
+        </div>
+
+    <div class="carousel_container w3-border-bottom w3-border-black">
+        <h3 id="accepted" style="font-weight: 800;">Accettate: <span class="badge mb-3"><%=@orders.where(:emailassistente => @user.email, :stato=>'accettata').count%></span></h3>
+        <div class="container">
+            <div class="row">
+                <div class="col reveal-">
+                <div class="carousel" id="accettate" data-flickity='{ "wrapAround": true }'>
+                    <%@orders.where(:emailassistente => @user.email, :stato=>'accettata').each do |ordine|%>
+                        <div class="card carousel-cell text-white bg-success m-5 align-top" style="max-width: 30rem; border-color: black;">
+                                    <div class="card-header" style="font-weight: 800">Richiesta accettata</div>
+                                        <div class="card-body">
+                                            <h6 class="card-title"><%=ordine.emailuser%></h6>
+                                            <h6>ha bisogno di:</h6>
+                                            <hr>
+                                            <% for i in 0..JSON.parse(ordine.cartTitoli).length-1%>
+                                                <p class="card-text"> <%= JSON.parse(ordine.cartTitoli)[i] %> | <%= JSON.parse(ordine.cartQuantita)[i] %></p>
+                                            <% end %>
+                                            <hr>
+                                            <p class="card-text"><%=ordine.created_at%></p>
+                                            <hr>
+                                            <p class="card-text">In:</p>
+                                            
+                                            <p class="card-text"><%=ordine.indirizzo%></p>
+                                            <a href="/complete/<%=ordine.id%>" class="btn btn-primary">Completa</a>
+                                        </div>
+                                    </div>  
+                        
+                    <%end%>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <div class="carousel_container w3-border-bottom w3-border-black">
+       <h3 id="complete" style="font-weight: 800;">Completate: <span class="badge mb-3"><%=@orders.where(:emailassistente => @user.email, :stato=>'completata').count%></span></h3>
+        <div class="container">
+            <div class="row">
+                <div class="col reveal-">
+                <div class="carousel" id="completate" data-flickity='{ "wrapAround": true }'>
+                    <%@orders.where(:emailassistente => @user.email, :stato=>'completata').each do |ordine|%>
+                        <div class="card carousel-cell bg-light m-5 align-top" style="max-width: 30rem; opacity:0.5; border-color: black">
+                                <div class="card-header" style="font-weight: 800">Richiesta completata</div>
+                                        <div class="card-body">
+                                            <h6 class="card-title"><%=ordine.emailuser%></h6>
+                                            <h6>ha bisogno di:</h6>
+                                            <hr>
+                                            <% for i in 0..JSON.parse(ordine.cartTitoli).length-1%>
+                                                <p class="card-text"> <%= JSON.parse(ordine.cartTitoli)[i] %> | <%= JSON.parse(ordine.cartQuantita)[i] %></p>
+                                            <% end %>
+                                            <hr>
+                                            <p class="card-text"><%=ordine.created_at%></p>
+                                            <hr>
+                                            <p class="card-text">In:</p>
+                                            
+                                            <p class="card-text"><%=ordine.indirizzo%></p>
+                                        </div>
+                                
+                        </div>
+                    <%end%>
+                </div>
+                </div>
+            </div>
+        </div>
+ </div>
+ <div class="carousel_container" style="margin-bottom: 1cm;">
+        <h3 id="waiting" style="font-weight: 800;">In coda: <span class="badge mb-3"><%=@orders.where(:emailassistente => @user.email, :stato=>'incoda').count%></span></h3>
+  <div class="container">
+   <div class="row">
+    <div class="col reveal-">
+     <div class="carousel" id="accodate" data-flickity='{ "wrapAround": true }'>
+        <%@orders.where(:emailassistente => @user.email, :stato=>'incoda').each do |ordine|%>
+
+                <div class="card carousel-cell bg-light m-5 align-top" style="max-width: 30rem;">
+                        <div class="card-header" style="font-weight: 800">Nuova richiesta</div>
+                            <div class="card-body">
+                            <h6 class="card-title"><%=ordine.emailuser%></h6>
+                            <h6>ha bisogno di:</h6>
+                            <hr>
+                                <% for i in 0..JSON.parse(ordine.cartTitoli).length-1%>
+                                    <p class="card-text"> <%= JSON.parse(ordine.cartTitoli)[i] %> | <%= JSON.parse(ordine.cartQuantita)[i] %></p>
+                                <% end %>
+                                <hr>
+                                <p class="card-text"><%=ordine.created_at%></p>
+                                <hr>
+                                <p class="card-text">In:</p>
+                                
+                                <p class="card-text"><%=ordine.indirizzo%></p>
+                                <div class="row">
+                                    <a href="/accept/<%=ordine.id%>" class="btn btn-success">Accetta</a>
+                                    <a href="/decline/<%=ordine.id%>" class="btn btn-danger">Rifiuta</a>
+                                </div>
+                        </div>
+                </div>
+        <%end%>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+<%end%>
+    
+
+</div>
+<%end%>
+<%if @user.is_assistito?%>
+    <div class="container mx-auto" style="margin-top: 100px; margin-bottom: 20px;">
+    <div class="card">
+        <form method="post">
+            <div class="row">
+                <div class="col-12 col-md-12">
+                    <div class="profile-head card-header" style="text-align: center; background-color:rgb(255, 224, 196);">
+                        <h5 class="mt-5 mb-5" style="font-weight: 800; font-size: 40px">
+                            <b>Ciao <i><%= @user.name%> <%= @user.surname%></i>! Questo è il tuo profilo </b>
+                            <img style="width: 4cm; border-radius: 5cm;" src="https://cdn.dribbble.com/users/1841402/screenshots/6030873/dr_kpala.gif">
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body" style="background-color:rgb(255, 236, 219);">
+                <ul class="list-group list-group-flush" >
+                            <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(255, 236, 219);">
+                                <div class="col-6">
+                                    <label style="font-size: 25px; font-weight:800">Il mio ruolo</label>
+                                </div>
+                                <div class="col-6">
+                                    <i>
+                                        <p style="font-size: 20px;">Assistito</p>
+                                    </i>
+                                </div>
+                            </div>
+                            <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(255, 236, 219);">
+                                <div class="col-6 col-md-6">
+                                    <label style="font-size: 25px; font-weight:800">Nome</label>
+                                </div>
+                                <div class="col-6 col-md-6">
+                                    <i>
+                                        <p style="font-size: 20px;"><%= @user.name%></p>
+                                    </i>
+                                </div>
+                            </div>
+                            <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(255, 236, 219);">
+                                <div class="col-6 col-md-6">
+                                    <label style="font-size: 25px; font-weight:800">Cognome</label>
+                                </div>
+                                <div class="col-6 col-md-6">
+                                    <i>
+                                        <p style="font-size: 20px;"><%= @user.surname%></p>
+                                    </i>
+                                </div>
+                            </div>
+                            <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(255, 236, 219);">
+                                <div class="col-6">
+                                    <label style="font-size: 25px; font-weight:800">Email</label>
+                                </div>
+                                <div class="col-6">
+                                    <i>
+                                        <p style="font-size: 20px;"><%= @user.email%></p>
+                                    </i>
+                                </div>
+                            </div>
+                            <div class="row list-group-item d-flex justify-content-center" style="background-color:rgb(255, 236, 219);">
+                                <div class="col-6 col-md-6">
+                                    <label style="font-size: 25px; font-weight:800">Indirizzo</label>
+                                </div>
+                                <div class="col-6 col-md-6">
+                                    <i>
+                                        <p style="font-size: 20px;"><%= @user.indirizzo+ ", "+@user.citta%></p>
+                                    </i>
+                                </div>
+                            </div>
+                             </ul>
+            </div>
+        </form>
+    </div>
+        
+
+
+     <div class="row">
+        <div class="col-12">
+            <h1 class="text-center mt-5">Le tue richieste <i class="fas fa-bell"></i><span class="badge"><%=@orders.where(:emailuser => @user.email, :stato => 'accettata').count%></span></h1>
+    </div>
+        </div>
+
+
+
+<%if @orders.where(:emailuser => @user.email).count==0%>
+    <div class="row" style="margin-bottom: 1cm;">
+    <div class="col-12" style="margin-top: 1cm; text-align: center;">
+        <h4>Non hai inviato nessuna Richiesta</h4>
+    </div>
+    <div class="col-12" style="margin-top: 1cm; text-align: center;">
+        <h5>Premi per iniziare ad ordinare:</h5>
+    </div>
+    <div class="col-12" style="margin-top: 1cm; text-align: center;">
+        <a class="btn btn-success" href="/eshop">Negozio</a>
+    </div>
+    </div>
+    <%else%>
+
+    <div class="row">
+        <div class="col-12 " style="text-align: center;">
+            <a class="btn btn-warning m-3" href="/profile#accettate">Accettate</a>
+            <a class="btn btn-warning m-3" href="/profile#respinte">Respinte</a>
+            <a class="btn btn-warning m-3" href="/profile#completate">Completate</a>
+            <a class="btn btn-warning m-3" href="/profile#accodate">In coda</a>
+        </div>
+    </div>
+
+
+    
+    <div class="carousel_container w3-border-bottom w3-border-black">
+        <h3 id="accepted" style="font-weight: 800;">Accettate: <span class="badge mb-3"><%=@orders.where(:emailuser => @user.email, :stato=>'accettata').count%></span></h3>
+  <div class="container">
+   <div class="row">
+    <div class="col reveal-">
+     <div class="carousel" id="accettate" data-flickity='{ "wrapAround": true }'>
+      <%@orders.where(:emailuser=> @user.email, :stato=>'accettata').each do |ordine|%>
+     <div class="card carousel-cell text-white bg-success m-5 align-top" style="max-width: 30rem; border-color: black; opacity: 0.8">
+                <div class="card-header" style="font-weight: 800">Richiesta accettata</div>
+                <div class="card-body">
+                <h6 class="card-title"><%=ordine.emailuser%></h6>
+                <h6>ha bisogno di:</h6>
+                <hr>
+                <% for i in 0..JSON.parse(ordine.cartTitoli).length-1%>
+                                                <p class="card-text"> <%= JSON.parse(ordine.cartTitoli)[i] %> | <%= JSON.parse(ordine.cartQuantita)[i] %></p>
+                                            <% end %>
+                <hr>
+                <p class="card-text"><%=ordine.created_at%></p>
+                <hr>
+                <p class="card-text">In:</p>
+
+                <p class="card-text"><%=ordine.indirizzo%></p>
+                </div>
+                </div>
+                <%end%>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <div class="carousel_container w3-border-bottom w3-border-black">
+        <h3 id="denied" style="font-weight: 800;">Respinte: <span class="badge mb-3"><%=@orders.where(:emailuser => @user.email, :stato=>'cancellata').count%></span></h3>
+  <div class="container">
+   <div class="row">
+    <div class="col reveal-">
+     <div class="carousel" id="respinte" data-flickity='{ "wrapAround": true }'>
+      <%@orders.where(:emailuser=> @user.email, :stato=>'cancellata').each do |ordine|%>
+        <div class="card text-white bg-danger m-5 align-top" style="max-width: 30rem; border-color: black; opacity: 0.8">
+                <div class="card-header" style="font-weight: 800">Richiesta rifiutata</div>
+                <div class="card-body">
+                <h6 class="card-title"><%=ordine.emailuser%></h6>
+                <h6>ha bisogno di:</h6>
+                <hr>
+                <% for i in 0..JSON.parse(ordine.cartTitoli).length-1%>
+                                                <p class="card-text"> <%= JSON.parse(ordine.cartTitoli)[i] %> | <%= JSON.parse(ordine.cartQuantita)[i] %></p>
+                                            <% end %>
+                <hr>
+                <p class="card-text"><%=ordine.created_at%></p>
+                <hr>
+                <p class="card-text">In:</p>
+
+                <p class="card-text"><%=ordine.indirizzo%></p>
+                </div>
+                </div>
+                <%end%>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <div class="carousel_container w3-border-bottom w3-border-black">
+       <h3 id="complete" style="font-weight: 800;">Completate: <span class="badge mb-3"><%=@orders.where(:emailuser => @user.email, :stato=>'completata').count%></span></h3>
+  <div class="container">
+   <div class="row">
+    <div class="col reveal-">
+     <div class="carousel" id="completate" data-flickity='{ "wrapAround": true }'>
+         <%@orders.where(:emailuser=> @user.email, :stato=>'completata').each do |ordine|%>
+
+        <div class="card bg-light m-5 align-top" style="max-width: 30rem; opacity:0.3; border-color: black">
+                <div class="card-header" style="font-weight: 800">Richiesta completata</div>
+                <div class="card-body">
+                    <h6 class="card-title"><%=ordine.emailuser%></h6>
+                    <h6>ha bisogno di:</h6>
+                    <hr>
+                    <% for i in 0..JSON.parse(ordine.cartTitoli).length-1%>
+                                                    <p class="card-text"> <%= JSON.parse(ordine.cartTitoli)[i] %> | <%= JSON.parse(ordine.cartQuantita)[i] %></p>
+                                                <% end %>
+                    <hr>
+                    <p class="card-text"><%=ordine.created_at%></p>
+                    <hr>
+                    <p class="card-text">In:</p>
+
+                    <p class="card-text"><%=ordine.indirizzo%>}</p>
+                </div>
+        </div>
+     
+        <%end%>
+
+     </div>
+    </div>
+   </div>
+  </div>
+  </div>
+
+ <div class="carousel_container" style="margin-bottom: 1cm;">
+        <h3 id="waiting" style="font-weight: 800;">In coda: <span class="badge mb-3"><%=@orders.where(:emailuser => @user.email, :stato=>'incoda').count%></span></h3>
+  <div class="container">
+   <div class="row">
+    <div class="col reveal-">
+     <div class="carousel" id="accodate" data-flickity='{ "wrapAround": true }'>
+     <%@orders.where(:emailuser=> @user.email, :stato=>'incoda').each do |ordine|%>
+         <div class="card bg-light m-5 align-top" style="max-width: 30rem;">
+                <div class="card-header" style="font-weight: 800">Nuova richiesta</div>
+                <div class="card-body">
+                <h6 class="card-title"><%=ordine.emailuser%></h6>
+                <h6>ha bisogno di:</h6>
+                <hr>
+                <% for i in 0..JSON.parse(ordine.cartTitoli).length-1%>
+                                                <p class="card-text"> <%= JSON.parse(ordine.cartTitoli)[i] %> | <%= JSON.parse(ordine.cartQuantita)[i] %></p>
+                                            <% end %>
+                <hr>
+                <p class="card-text"><%=ordine.created_at%></p>
+                <hr>
+                <p class="card-text">In:</p>
+
+                <p class="card-text"><%=ordine.indirizzo%></p>
+                <div class="row">
+                <%= link_to "", order_path(ordine), :method => :delete , class: "btn btn-danger fa fa-trash" %>
+                
+                </div>
+                </div>
+                </div>
+                <%end%>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+
+    
+                
+           
+    
+
+                
+
+
+
+                
+
+
+                
+            
+    <%end%>
+</div>
+<%end%>

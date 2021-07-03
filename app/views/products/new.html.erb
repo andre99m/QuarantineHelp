@@ -1,0 +1,14 @@
+<div style="height: 80vh; margin-top:2cm;">
+<div class="row mx-auto" style="margin-bottom: 0.5cm;">
+    <div class="col-md-4 col-md-offset-4 mx-auto">
+        <h1 class="text-center" style="font-size: 30px;">Crea Prodotto
+        </h1>
+      <%= form_with url: products_path ,class: "formABC" ,method: :post do |form| %>
+        <%= render partial: "product_form", locals: {form: form, product: nil} %>
+        
+        <input type="submit" class="btn btn-success">
+
+      <% end %>
+      </div>
+      </div>
+</div>
